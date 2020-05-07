@@ -1,5 +1,5 @@
 <template>
-  <d-badge v-bind:theme="getTheme()">{{ status }}</d-badge>
+  <d-badge :theme="getTheme()">{{ status }}</d-badge>
 </template>
 
 <script>
@@ -9,6 +9,7 @@ export default {
     status: String,
     id: Number
   },
+
   methods: {
     getTheme() {
       switch (this.status) {

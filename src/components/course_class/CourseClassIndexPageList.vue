@@ -23,7 +23,7 @@
             <td>{{ courseClass.course.title }}</td>
             <td>{{ courseClass.room.name }}</td>
             <td>
-              <CourseClassStatusBadge v-bind:status="courseClass.status" />
+              <CourseClassStatusBadge :status="courseClass.status" />
             </td>
           </tr>
         </tbody>
@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     async fetchData() {
-      console.log(CourseClassRepository);
       this.classes = await CourseClassRepository.fetchAllCourseClasses();
       this.loading = false;
     }
