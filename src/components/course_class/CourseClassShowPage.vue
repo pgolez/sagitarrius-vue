@@ -3,7 +3,6 @@
     <d-row>Course Class</d-row>
     <d-row>
       <d-col>Code</d-col>
-      <d-col>{{ code }}</d-col>
     </d-row>
   </d-container>
 </template>
