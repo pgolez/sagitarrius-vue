@@ -1,26 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import VueRouter from 'vue-router'
-
-// import CourseClassCreate from '@/components/CourseClassCreate'
-
-
-
-// Vue.config.productionTip = false
-
-
-
-// new VueRouter({
-//     routes: [{
-//         path: '/course-classes/create',
-//         component: CourseClassCreate
-//     }]
-// })
+import ShardsVue from 'shards-vue'
 import router from './router';
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'shards-ui/dist/css/shards.css'
+
 
 new Vue({
     render: h => h(App),
     router
 }).$mount('#app')
 
-// Vue.use(VueRouter)
+Vue.use(ShardsVue);
