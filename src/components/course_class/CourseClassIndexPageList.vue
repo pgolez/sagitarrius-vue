@@ -18,7 +18,9 @@
             <td>{{ courseClass.course.code }}</td>
             <td>{{ courseClass.course.title }}</td>
             <td>{{ courseClass.room.name }}</td>
-            <td>{{ courseClass.status }}</td>
+            <td>
+              <CourseClassStatusBadge v-bind:status="courseClass.status" />
+            </td>
           </tr>
         </tbody>
       </table>
@@ -26,8 +28,11 @@
   </d-container>
 </template>
 <script>
+import CourseClassStatusBadge from "./CourseClassStatusBadge";
+
 export default {
   name: "CourseClassIndexPageList",
+  components: { CourseClassStatusBadge },
   data() {
     return {
       loading: true,
@@ -82,7 +87,7 @@ export default {
               name: "First Semester 2020-2021"
             },
             max_enrollment: 25,
-            status: "OPEN",
+            status: "CLOSED",
             created_at: "2020-05-05T02:35:05.751Z",
             updated_at: "2020-05-05T02:35:05.751Z",
             url: "http://localhost:3000/course-classes/2"
@@ -105,7 +110,7 @@ export default {
               name: "First Semester 2020-2021"
             },
             max_enrollment: 30,
-            status: "DRAFT",
+            status: "ON HOLD",
             created_at: "2020-05-05T02:35:23.745Z",
             updated_at: "2020-05-05T08:06:04.300Z",
             url: "http://localhost:3000/course-classes/3"
