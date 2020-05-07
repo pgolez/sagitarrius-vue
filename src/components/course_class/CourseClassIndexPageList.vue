@@ -14,7 +14,11 @@
         </thead>
         <tbody>
           <tr v-for="courseClass in classes" v-bind:key="courseClass.id">
-            <td>{{ courseClass.code }}</td>
+            <td>
+              <router-link
+                :to="{name: 'course_class.show', params: {id: courseClass.id}}"
+              >{{ courseClass.code }}</router-link>
+            </td>
             <td>{{ courseClass.course.code }}</td>
             <td>{{ courseClass.course.title }}</td>
             <td>{{ courseClass.room.name }}</td>

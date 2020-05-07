@@ -6,7 +6,8 @@
 export default {
   name: "CourseClastatusBadge",
   props: {
-    status: String
+    status: String,
+    id: Number
   },
   methods: {
     getTheme() {
