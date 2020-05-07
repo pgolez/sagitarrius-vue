@@ -34,7 +34,7 @@
 
 <script>
 import CourseClassStatusBadge from "./CourseClassStatusBadge";
-import axios from "axios";
+import CourseClassRepository from "@/repositories/course_class/course-class.repository";
 
 export default {
   name: "CourseClassIndexPageList",
@@ -50,16 +50,8 @@ export default {
   },
   methods: {
     async fetchData() {
-      const instance = axios.create({
-        baseURL: "http://localhost:3000",
-        timeout: 1000,
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json"
-        }
-      });
-      const response = await instance.get("/course-classes");
-      this.classes = response.data;
+      console.log(CourseClassRepository);
+      this.classes = await CourseClassRepository.fetchAllCourseClasses();
       this.loading = false;
     }
   }
