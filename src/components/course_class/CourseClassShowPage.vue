@@ -1,5 +1,8 @@
 <template>
   <d-container>
+    <d-row>
+      <d-breadcrumb :items="breadcrumbItems" />
+    </d-row>
     <d-card id="course-class-card" class="m-auto">
       <d-card-header>{{ course_class.code }}</d-card-header>
       <d-card-body :title="course_class.course_code" :subtitle="course_class.course_title">
@@ -36,7 +39,14 @@ export default {
         course_title: "",
         status: "",
         max_enrollment: 0
-      }
+      },
+      breadcrumbItems: [
+        {
+          text: "Courses",
+          href: `${this.$router.resolve({ name: "course-class.index" }).href}`
+        },
+        { text: "", active: true }
+      ]
     };
   },
   created() {
@@ -54,6 +64,10 @@ export default {
       this.course_class.course_title = course_class_json.course.title;
       this.course_class.status = course_class_json.status;
       this.course_class.max_enrollment = course_class_json.max_enrollment;
+
+      this.breadcrumbItems[
+        this.breadcrumbItems.length - 1
+      ].text = `Class ${this.course_class.code}`;
     }
   }
 };
