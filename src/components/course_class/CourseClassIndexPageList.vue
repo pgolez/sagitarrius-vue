@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-auto w-100">
     <d-row v-show="loading">Fetching shits...</d-row>
     <d-row v-show="!loading">
       <table class="table">
