@@ -30,6 +30,7 @@
 
           <RoomSelect v-model="courseClass.roomId" />
           <CourseSelect v-model="courseClass.courseId" />
+          <ScheduleSelect v-model="courseClass.scheduleId" />
 
           <d-button type="submit">Create class</d-button>
         </d-form>
@@ -42,12 +43,14 @@
 import CourseClassRepository from "@/repositories/course_class/course-class.repository";
 import RoomSelect from "./CourseClassCreatePageRoomSelect";
 import CourseSelect from "./CourseClassCreatePageCourseSelect";
+import ScheduleSelect from "./CourseClassCreatePageScheduleSelect";
 
 export default {
   name: "CourseClassCreatePage",
   components: {
     RoomSelect,
-    CourseSelect
+    CourseSelect,
+    ScheduleSelect
   },
   data() {
     return {
@@ -56,6 +59,7 @@ export default {
         courseId: null,
         roomId: null,
         semesterId: "1",
+        scheduleId: null,
         maxEnrollment: 20
       }
     };
@@ -67,6 +71,7 @@ export default {
         code: this.courseClass.code,
         course_id: this.courseClass.courseId,
         room_id: this.courseClass.roomId,
+        schedule_id: this.courseClass.scheduleId,
         semester_id: this.courseClass.semesterId,
         max_enrollment: this.courseClass.maxEnrollment
       });
