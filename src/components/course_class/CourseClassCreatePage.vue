@@ -7,7 +7,7 @@
     </d-row>
     <d-row>
       <d-col cols="8" offset="2">
-        <d-form @submit="createNewCourseClass()">
+        <d-form @submit.prevent="createNewCourseClass()">
           <div class="form-group">
             <label class="sr-only" for="course-class_id">Class code</label>
             <d-input
@@ -28,6 +28,8 @@
             />
           </div>
 
+          <RoomSelect v-model="courseClass.roomId" />
+
           <d-button type="submit">Create Account</d-button>
         </d-form>
       </d-col>
@@ -37,15 +39,17 @@
 
 <script>
 import CourseClassRepository from "@/repositories/course_class/course-class.repository";
+import RoomSelect from "./CourseClassCreatePageRoomSelect";
 
 export default {
   name: "CourseClassCreatePage",
+  components: { RoomSelect },
   data() {
     return {
       courseClass: {
         code: "",
         courseId: "1",
-        roomId: "1",
+        roomId: 2,
         semesterId: "1",
         maxEnrollment: 20
       }
