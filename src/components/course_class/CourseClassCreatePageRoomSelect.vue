@@ -17,8 +17,7 @@ export default {
   name: "CourseClassCreatePageRoomSelect",
   data() {
     return {
-      selected: null,
-      options: [{ value: null, text: "🍕 Select a room" }]
+      options: [{ value: undefined, text: "🍕 Select a room" }]
     };
   },
   props: { roomId: Number },
